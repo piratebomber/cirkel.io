@@ -1,0 +1,90 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# JavaScript, TypeScript, JSX, TSX
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
+max_line_length = 100
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# YAML files
+[*.{yml,yaml}]
+indent_size = 2
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# Python files
+[*.py]
+indent_size = 4
+max_line_length = 88
+
+# Shell scripts
+[*.sh]
+indent_size = 2
+
+# Docker files
+[Dockerfile*]
+indent_size = 2
+
+# Configuration files
+[*.{toml,ini,cfg}]
+indent_size = 2
+
+# CSS, SCSS, LESS
+[*.{css,scss,less}]
+indent_size = 2
+
+# HTML files
+[*.html]
+indent_size = 2
+
+# XML files
+[*.xml]
+indent_size = 2
+
+# SQL files
+[*.sql]
+indent_size = 2
+
+# Rust files
+[*.rs]
+indent_size = 4
+
+# Go files
+[*.go]
+indent_style = tab
+indent_size = 4
+
+# Makefile
+[Makefile]
+indent_style = tab
+
+# Package.json and similar
+[package.json]
+indent_size = 2
+
+# Lock files
+[*.lock]
+insert_final_newline = false
+
+# Binary files
+[*.{png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}]
+insert_final_newline = false
+trim_trailing_whitespace = false
