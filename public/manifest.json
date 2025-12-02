@@ -1,57 +1,93 @@
 {
-  "name": "Cirkel.io - Social Media Reimagined",
-  "short_name": "Cirkel",
-  "description": "The next generation social media platform",
+  "name": "Cirkel.io - Social Media Platform",
+  "short_name": "Cirkel.io",
+  "description": "A comprehensive social media platform with advanced features for creators, communities, and businesses",
+  "version": "1.0.0",
+  "manifest_version": 3,
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0ea5e9",
   "orientation": "portrait-primary",
+  "theme_color": "#1a1a1a",
+  "background_color": "#000000",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["social", "entertainment", "productivity"],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Home feed on desktop"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Home feed on mobile"
+    },
+    {
+      "src": "/screenshots/desktop-profile.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "User profile on desktop"
+    },
+    {
+      "src": "/screenshots/mobile-profile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "User profile on mobile"
+    }
+  ],
   "icons": [
     {
-      "src": "/icon-72x72.png",
+      "src": "/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-96x96.png",
+      "src": "/icons/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-128x128.png",
+      "src": "/icons/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-144x144.png",
+      "src": "/icons/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-152x152.png",
+      "src": "/icons/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-192x192.png",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/icon-384x384.png",
+      "src": "/icons/icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
@@ -62,28 +98,117 @@
       "name": "Create Post",
       "short_name": "Post",
       "description": "Create a new post",
-      "url": "/create",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "url": "/compose",
+      "icons": [
+        {
+          "src": "/icons/shortcut-compose.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Messages",
       "short_name": "Messages",
-      "description": "View messages",
+      "description": "View your messages",
       "url": "/messages",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icons/shortcut-messages.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Notifications",
       "short_name": "Notifications",
-      "description": "View notifications",
+      "description": "View your notifications",
       "url": "/notifications",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icons/shortcut-notifications.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "short_name": "Profile",
+      "description": "View your profile",
+      "url": "/profile",
+      "icons": [
+        {
+          "src": "/icons/shortcut-profile.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
   ],
-  "categories": ["social", "entertainment", "news"],
-  "lang": "en",
-  "dir": "ltr",
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["image/*", "video/*", "audio/*", ".pdf", ".doc", ".docx"]
+        }
+      ]
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/handle-file",
+      "accept": {
+        "image/*": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"],
+        "video/*": [".mp4", ".webm", ".mov", ".avi"],
+        "audio/*": [".mp3", ".wav", ".ogg", ".m4a"],
+        "text/plain": [".txt"],
+        "application/pdf": [".pdf"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+cirkel",
+      "url": "/handle-protocol?url=%s"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "capture_links": "existing-client-navigate",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "prefer_related_applications": false,
-  "scope": "/",
-  "id": "cirkel-io-pwa"
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=io.cirkel.app",
+      "id": "io.cirkel.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/cirkel-io/id123456789",
+      "id": "123456789"
+    }
+  ],
+  "permissions": [
+    "notifications",
+    "background-sync",
+    "persistent-storage"
+  ],
+  "features": [
+    "CrossOriginIsolated"
+  ]
 }
