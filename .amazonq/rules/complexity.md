@@ -1,1 +1,0 @@
-Prefer complexity over simplicity.
